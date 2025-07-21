@@ -1,0 +1,69 @@
+.sidebar-header {
+  text-align: center;
+  padding: 24px 0;
+  width: 200px;
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+  }
+  h3 {
+    margin: 12px 0 4px;
+    color: #fff;
+  }
+  small {
+    color: #a0a0a0;
+  }
+}
+
+mat-nav-list {
+  margin-top: 8px;
+  a.mat-list-item {
+    color: rgba(255,255,255,0.9);
+    margin: 4px;
+    mat-icon {
+      margin-right: 16px;
+    }
+    &:hover, &.active {
+      background: rgba(255,255,255,0.1);
+    }
+  }
+}
+
+
+.sidenav-nav .sidenav-nav-item {
+  width: 100%;
+  margin-bottom: 0.625rem;
+}
+.sidenav-nav .sidenav-nav-item .sidenav-nav-link {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  color: #f3f3f3;
+  text-decoration: none;
+  border-radius: 0.625rem;
+  transition: all 0.3s ease;
+}
+
+.sidenav-nav .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
+  margin-left: 1.5rem;
+}
+.sidenav-nav .sidenav-nav-item:hover .sidenav-nav-link {
+  background-color: #fff;
+  color: #000;
+}
+
+mat-icon {
+  font-size: 24px;
+   color:  #fff;
+}
+
+.sidenav-nav-link mat-icon {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.sidenav-nav-link:hover mat-icon {
+  color:#012a5b ; 
+}

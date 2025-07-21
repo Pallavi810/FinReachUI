@@ -1,0 +1,43 @@
+<div class="login-wrapper">
+    <mat-card class="login-card">
+        <div class="left-pane"></div>
+        <div class="right-pane">
+            <h2>Deutsche Bank Agency Banking Portal</h2>
+            <div class="centered-section">
+                <p class="login-label">Login As</p>
+                <div class="card-container">
+                    <div class="card" [class.active]="selectedRole === 'agent'" (click)="selectRole('agent')">
+                        <img src="assets\images\agent3.png" class="icon" />
+                        <span>DB Agent</span>
+                    </div>
+                    <div class="card" [class.active]="selectedRole === 'customer'" (click)="selectRole('customer')">
+                        <img src="assets\images\user-icon.png" class="icon" />
+                        <span>DB Customer</span>
+                    </div>
+                </div>
+            </div>
+
+            <form (ngSubmit)="login()">
+                <mat-form-field appearance="outline" class="modern-input">
+                    <mat-label>Username</mat-label>
+                    <input matInput [(ngModel)]="username" name="username" placeholder="Enter username" required />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="modern-input">
+                    <mat-label>Password</mat-label>
+                    <input matInput [(ngModel)]="password" name="password" [type]="hidePassword ? 'password' : 'text'" placeholder="Enter password" required />
+                </mat-form-field>
+
+                <div class="captcha-box">
+                    <mat-checkbox [(ngModel)]="captchaChecked" name="captcha">
+                        I'm not a robot
+                    </mat-checkbox>
+                </div>
+
+                <button mat-raised-button color="primary" [disabled]="!captchaChecked" class="full-width login-btn" type="submit">
+                    Login
+                </button>
+            </form>
+        </div>
+    </mat-card>
+</div>

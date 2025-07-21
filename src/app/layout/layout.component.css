@@ -1,0 +1,25 @@
+
+
+.app-container {
+  height: 100vh;
+}
+
+.app-sidenav {
+  width: var(--sidebar-width);
+  background: #012a5b;
+  color: #fff;
+  border-radius: 0 !important;
+}
+
+.top-sidenav {
+  width: var(--sidebar-width);
+  background: #1e272e;
+  color: #fff;
+}
+
+.content {
+  margin-top: var(--toolbar-height);
+  padding: 40px;
+  background: #f4f6f8;
+  min-height: calc(100vh - var(--toolbar-height));
+}

@@ -1,0 +1,56 @@
+.app-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background: #012a5b;
+  height:100px ;
+}
+.title {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+.icon-button:hover {
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+button[mat-icon-button] {
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.app-toolbar .sidenav-nav-item {
+  width: 100%;
+  margin-bottom: 0.625rem;
+}
+.app-toolbar .sidenav-nav-item .sidenav-nav-link {
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  color: #f3f3f3;
+  text-decoration: none;
+  border-radius: 0.625rem;
+  transition: all 0.3s ease;
+}
+.app-toolbar .sidenav-nav-item .sidenav-nav-link .sidenav-link-text {
+  margin-left: 1.5rem;
+}
+.app-toolbar .sidenav-nav-item:hover .sidenav-nav-link {
+  background-color: #fff;
+  color: #000;
+}
+
+.sidenav-nav-link mat-icon {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.sidenav-nav-link:hover mat-icon {
+  color:#012a5b ; 
+}
