@@ -19,6 +19,10 @@ export class ChartByRegionComponent {
       subtitle: {
         text: "With a focus on gender distribution of customers across different regions",
       },
+      tooltip: {
+        enabled: true,
+        mode: "single",
+      },
       series: [
         {
           type: "bar",

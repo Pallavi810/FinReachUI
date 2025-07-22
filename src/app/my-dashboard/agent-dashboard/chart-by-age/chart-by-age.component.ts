@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AgCharts } from 'ag-charts-angular';
-import { AgChartOptions } from "ag-charts-community";
+import { AgChartOptions, PixelSize } from "ag-charts-community";
 
 @Component({
   selector: 'app-chart-by-age',
@@ -16,29 +16,43 @@ export class ChartByAgeComponent {
       title: {
         text: "Age Demographics",
       },
+      legend: {
+        position: "bottom",
+        item: {
+          label: {
+            fontSize: 11,
+          },
+        },
+      },
       series: [
         {
           type: "pie",
           angleKey: "count",
           calloutLabelKey: "ageGroup",
           sectorLabelKey: "count",
+          legendItemKey: "ageGroup",
           sectorLabel: {
             color: "white",
             fontWeight: "bold",
             formatter: ({ value }: { value: number }) => `${(value).toFixed(2)}%`,
           },
           calloutLabel: {
+            color: "black",
             formatter: ({ value }: { value: string }) => `${(value).slice(0, value.indexOf('('))}`,
           },
-          legendItemKey: "ageGroup",
           tooltip: {
-            enabled: true,
-            renderer: ({ datum }: { datum: any }) => {
-              datum.count = datum.count.toFixed(2) + '%';
-              return datum
-            }
-          }
-        },
+            renderer: function ({ datum }) {
+              return {
+                data: [
+                  {
+                    label: datum.ageGroup,
+                    value: datum.count.toFixed(2) + '%',  // Format the value as a percentage],
+                  },
+                ],
+              };
+            },
+          },
+        }
       ],
     };
   }
@@ -61,8 +75,8 @@ export class ChartByAgeComponent {
   getData() {
     return [
       { ageGroup: "Young Adults(18-39)", count: 60000 },
-      { ageGroup: "Middle-Aged Adults (40-65)", count: 40000 },
-      { ageGroup: "Old Adults (66 and above)", count: 17000 }
+      { ageGroup: "Middle-Aged(40-65)", count: 40000 },
+      { ageGroup: "Old Adults(66 and above)", count: 17000 }
     ]
   }
 }

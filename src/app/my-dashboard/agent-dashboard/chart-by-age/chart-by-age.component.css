@@ -1,0 +1,10 @@
+.ag-charts-tooltip {
+    background-color: rgb(132, 90, 21);
+    border: 2px solid peachpuff;
+    color: maroon;
+}
+
+.ag-charts-tooltip-heading {
+    font-weight: bold;
+    color: darkslateblue;
+}

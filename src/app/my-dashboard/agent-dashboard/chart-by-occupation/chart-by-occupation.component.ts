@@ -18,42 +18,43 @@ export class ChartByOccupationComponent {
       series: [
         {
           type: "donut",
-          legendItemKey: "ageGroup",
-          calloutLabelKey: 'occupation',
-          angleKey: 'count',
+          angleKey: "count",
           innerRadiusRatio: 0.4,
           outerRadiusRatio: 0.9,
+          calloutLabelKey: "occupation",
+          sectorLabelKey: "count",
           sectorLabel: {
             color: "white",
+            fontWeight: "bold",
             formatter: ({ value }: { value: number }) => `${(value).toFixed(2)}%`,
           },
+          
           tooltip: {
-            enabled: true,
-            renderer: ({ datum }: { datum: any }) => {
-              datum.count = datum.count.toFixed(2) + '%';
-              return datum;
-            }
-          }
-          // innerLabels: [
-          //   {
-          //     text: "Total Investment",
-          //     fontWeight: "bold",
-          //   },
-          //   {
-          //     text: "$100,000",
-          //     spacing: 4,
-          //     fontSize: 20,
-          //     color: "green",
-          //   },
-          // ],
-          // innerCircle: {
-          //   fill: "#c9fdc9",
-          // },
+            renderer: function ({ datum }) {
+              return {
+                data: [
+                  {
+                    label: datum.occupation,
+                    value: datum.count.toFixed(2) + '%',  // Format the value as a percentage],
+                  },
+                ],
+              };
+            },
+          },
         },
       ],
     };
   }
 
+  percentRenderer(params: any) {
+    return {
+      content: Number(params.value).toFixed(2) + '%'
+    }
+  }
+
+  percentFormatter(params: any) {
+    return params.value.toFixed(0) + '%'
+  }
   ngOnInit() {
     const chartDataInPercent = this.getData();
     let total = 0;
