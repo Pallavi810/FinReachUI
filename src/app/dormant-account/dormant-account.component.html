@@ -1,1 +1,23 @@
-<p>dormant account works!</p>
+<div class="container-flex">
+    <mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Dormant Account</mat-card-title>
+            <mat-card-actions style="margin-left: auto;">
+                <button mat-button-filled class="success" aria-label="reset" (click)="resetGridSettings()">
+                    Reset
+                </button>
+            </mat-card-actions>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="card-body" style="height: 60vh; display: flex; flex-direction: column">
+                <ag-grid-angular style="height: 100%;" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+                    [autoGroupColumnDef]="autoGroupColumnDef" [rowData]="rowData" (gridReady)="onGridReady($event)"
+                    [pagination]="true" [theme]="theme" />
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+
+
