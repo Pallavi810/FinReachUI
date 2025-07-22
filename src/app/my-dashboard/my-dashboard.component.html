@@ -1,1 +1,7 @@
 <p>my-dashboard works!</p>
+<div *ngIf="isAgent">
+    <app-agent-dashboard></app-agent-dashboard>
+</div>
+<div *ngIf="!isAgent">
+    <app-customer-dashboard></app-customer-dashboard>
+</div>
