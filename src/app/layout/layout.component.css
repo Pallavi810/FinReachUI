@@ -20,6 +20,6 @@
 .content {
   margin-top: var(--toolbar-height);
   padding: 40px;
-  background: #f4f6f8;
+  /* background: #f4f6f8; */
   min-height: calc(100vh - var(--toolbar-height));
 }

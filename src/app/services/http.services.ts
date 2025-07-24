@@ -7,7 +7,7 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 })
 export class HttpService {
     headers = new HttpHeaders();
-    env = 'https://concrete-flight-466607-e5.el.r.appspot.com';
+    env = '/api';
     constructor(private httpClient: HttpClient) {
     }
 

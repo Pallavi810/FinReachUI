@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   background: #5d81b1;
-  background-image: url('../../assets/images/bg_image.jpeg');
+  /* background-image: url('../../assets/images/bg.jpeg'); */
    background-size: cover;
   background-repeat: no-repeat;
 }

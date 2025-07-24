@@ -1,1 +1,60 @@
-<p>customer-dashboard works!</p>
+<div class="title">
+    <mat-icon fontIcon="warning" class="tIcon"></mat-icon> 
+    @if(customerType == 'DORMANT') {
+        <span>Your account has gone dormant. Please connect to your nearest agent to activate your account.</span>
+    }@else if(customerType == 'FIN_EXCLUDED') {
+        <span>Your account has been identified as a low usage account. Please use DB services to keep your account active and avail its benefits.</span>
+    }@else {
+        <span>Your account is about to expire. To make it active perform below activities</span>
+    }
+     
+</div>
+
+<div class="activity">
+    <div class="activity-row ">
+        <div class="activity-col cr">
+            <button mat-fab class="act-button" [disabled]="((customerType == 'DORMANT') || (customerType == 'FIN_EXCLUDED'))"
+             [ngClass]="{'bt-disabled': customerType != 'NORMAL'}">
+              <mat-icon fontIcon="credit_card" class="tIcon"></mat-icon> 
+            </button>
+         </div>
+      
+         <div class="activity-col">
+              <button mat-fab class="act-button" [disabled]="((customerType == 'DORMANT') || (customerType == 'FIN_EXCLUDED'))"
+              [ngClass]="{'bt-disabled': customerType != 'NORMAL'}">
+                 <mat-icon fontIcon="currency_rupee" class="tIcon"></mat-icon> 
+              </button>
+          </div>
+      
+         <div class="activity-col">
+              <button mat-fab class="act-button" [disabled]="((customerType == 'DORMANT') || (customerType == 'FIN_EXCLUDED'))"
+              [ngClass]="{'bt-disabled': customerType != 'NORMAL'}">
+                <mat-icon fontIcon="redeem" class="tIcon"></mat-icon> 
+              </button>
+          </div>
+        
+        <div class="activity-col" >
+            <button mat-fab class="act-button" [disabled]="(customerType == 'NORMAL')" [ngClass]="{'bt-disabled':customerType == 'NORMAL'}">
+                <mat-icon fontIcon="contact_support" class="tIcon"></mat-icon> 
+            </button>
+        </div>
+    </div>
+   
+    <div class="activity-row ">
+        <div class="activity-col cr-text activity_text">
+             Credit/Debit 
+         </div>
+      
+         <div class="activity-col activity_text activity-text-lg">
+              Pay Bill/Recharge
+          </div>
+      
+         <div class="activity-col activity_text activity-text-lg">
+              Redeem Vouchers
+          </div>
+
+          <div class="activity-col activity_text">
+             Contact Agent
+        </div>
+    </div>
+</div>

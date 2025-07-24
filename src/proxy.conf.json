@@ -1,8 +1,0 @@
-{
-    "/api/**": {
-        "target": "https://concrete-flight-466607-e5.el.r.appspot.com/",
-        "secure": false,
-        "changeOrigin": true,
-        "logLevel": "info"
-    }
-}

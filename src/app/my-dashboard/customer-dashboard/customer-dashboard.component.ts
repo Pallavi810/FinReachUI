@@ -1,11 +1,13 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-customer-dashboard',
-  imports: [],
+  imports: [MatIconModule, CommonModule],
   templateUrl: './customer-dashboard.component.html',
   styleUrl: './customer-dashboard.component.css'
 })
 export class CustomerDashboardComponent {
-
+  customerType: 'NORMAL' | 'DORMANT' | 'FIN_EXCLUDED' = 'DORMANT';
 }
