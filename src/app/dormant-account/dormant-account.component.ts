@@ -4,8 +4,9 @@ import { AgGridAngular } from 'ag-grid-angular';
 import { HttpClient } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import {
-  GridApi,ColDef, GridReadyEvent,ModuleRegistry,themeAlpine} from 'ag-grid-community';
+import { GridApi,ColDef, GridReadyEvent,ModuleRegistry,themeAlpine} from 'ag-grid-community';
+import {ActionButtonRendererComponent } from './button-render-component'
+
 
 @Component({
   selector: 'app-dormant-account',
@@ -27,6 +28,9 @@ export class DormantAccountComponent {
     { field: "numberOfTransaction", headerName: "Number Of Transaction", filter: "agSetColumnFilter" },
     { field: "lastTransactionDate", headerName: "Last Transaction Date", filter: "agDateColumnFilter" },
     { field: "occupationScheme", headerName: "Occupation Scheme", filter: "agSetColumnFilter" },
+    {
+      headerName: 'Action', cellRenderer: ActionButtonRendererComponent, width: 50,
+    },
   ];
 
 

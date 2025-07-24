@@ -50,11 +50,7 @@ export class TopNavbarComponent {
       routeLink: 'customer-onboarding',
       icon: 'person_add',
       label: 'Customer Onboarding',
-    },   {
-      routeLink: 'redeem-voucher',
-      icon: 'card_giftcard',
-      label: 'Redeem Voucher',
-    },   {
+    }, {
       routeLink: 'check-voucher',
       icon: 'receipt_long ',
       label: 'Check Voucher',

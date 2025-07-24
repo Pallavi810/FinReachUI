@@ -1,0 +1,11 @@
+   <h2 mat-dialog-title>Account Details</h2>
+    <mat-dialog-content>
+      <p><strong>Account ID:</strong> {{ data.accountId }}</p>
+      <p><strong>Account Holder:</strong> {{ data.accountHolderName }}</p>
+      <p><strong>Gender:</strong> {{ data.gender }}</p>
+      <p><strong>Last Transaction date :</strong>{{ data.lastTransactionDate}}</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-raised-button color="primary" mat-dialog-close>Close</button>
+        <button mat-raised-button color="primary" (click)="openOtpDialog()">Send OTP</button>
+    </mat-dialog-actions>
