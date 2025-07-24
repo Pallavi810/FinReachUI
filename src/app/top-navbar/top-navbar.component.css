@@ -5,9 +5,10 @@
   z-index: 10;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   background: #012a5b;
-  height:100px ;
+  height: 55px ;
   align-items: center;
   padding-left: 8px; 
+  font-size: 14px;
 }
 .title {
   font-weight: 500;
@@ -45,8 +46,8 @@ button[mat-icon-button] {
   margin-left: 1.5rem;
 }
 .app-toolbar .sidenav-nav-item:hover .sidenav-nav-link {
-  background-color: #fff;
-  color: #000;
+  background-color: #012a5b;
+  color: white;
 }
 
 .sidenav-nav-link mat-icon {
@@ -55,7 +56,7 @@ button[mat-icon-button] {
 }
 
 .sidenav-nav-link:hover mat-icon {
-  color:#012a5b ; 
+  color:white ; 
 }
 
 .header-banner h1 {

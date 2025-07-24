@@ -32,4 +32,20 @@ export class HttpService {
     getAllExcludedAccounts() {
         return this.getData(`${this.env}/getAllExcludedAccounts`);
     }
+    getAllDormantAccounts() {
+        return this.getData(`${this.env}/getAllDormantAccounts`);
+    }
+    getcountDormantAccountsByLocation() {
+        return this.getData(`${this.env}/countDormantAccountsByLocation`);
+    }
+    getCountDormantAccountsByAge(minAge: any, maxAge: any) {
+        const httpParams = new HttpParams().append("minAge", minAge).append("maxAge", maxAge);
+        return this.getData(`${this.env}/countDormantAccountsByAge`, httpParams);
+    }
+    getCountDormantAccountsByOccupation() {
+        return this.getData(`${this.env}/countDormantAccountsByOccupation`);
+    }
+    getCountExcludedAccountsByLocation() {
+        return this.getData(`${this.env}/countExcludedAccountsByLocation`);
+    }
 }
