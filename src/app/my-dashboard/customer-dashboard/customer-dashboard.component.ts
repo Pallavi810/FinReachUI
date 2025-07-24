@@ -9,5 +9,5 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './customer-dashboard.component.css'
 })
 export class CustomerDashboardComponent {
-  customerType: 'NORMAL' | 'DORMANT' | 'FIN_EXCLUDED' = 'DORMANT';
+ customerType = (localStorage.getItem('customerType') as 'NORMAL' | 'DORMANT' | 'FIN_EXCLUDED') ?? 'DORMANT';
 }

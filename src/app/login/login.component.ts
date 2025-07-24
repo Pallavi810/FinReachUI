@@ -38,21 +38,28 @@ export class LoginComponent {
   dummyUsers = {
     agent: [{
       username: 'rohit',
-      password: 'rohit123'
-    },
-    {
+      password: 'rohit123',
+      customerType: 'NORMAL'
+    },{
       username: 'rahul',
-      password: 'rahul123'
-    }
-  ],
+      password: 'rahul123',
+      customerType: 'NORMAL'
+    }],
     customer: [{
       username: 'amit',
-      password: 'amit123'
-    },
-  {
+      password: 'amit123',
+      customerType: 'NORMAL'
+    },{
       username: 'rohan',
-      password: 'rohan123'
-    }]
+      password: 'rohan123',
+      customerType: 'DORMANT'
+    },
+    {
+      username: 'ajoy',
+      password: 'ajoy123',
+      customerType: 'FIN_EXCLUDED'
+    }
+  ]
   };
 
   selectRole(role: 'agent' | 'customer') {
@@ -68,6 +75,7 @@ constructor(private router: Router,  private snackBar: MatSnackBar) { }
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('userRole',this.selectedRole)
       localStorage.setItem('userName', user.username)
+      localStorage.setItem('customerType', user.customerType)
       this.router.navigate(['/my-dashboard']);
       break; 
     }else{
