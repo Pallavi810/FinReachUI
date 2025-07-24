@@ -23,7 +23,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
-              ],
+            ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
@@ -56,6 +56,9 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "FinReach:build:production"
@@ -77,10 +80,10 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-           "assets": [
+            "assets": [
               "src/favicon.ico",
               "src/assets"
-              ],
+            ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"

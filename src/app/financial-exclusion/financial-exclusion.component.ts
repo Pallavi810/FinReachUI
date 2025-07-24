@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { AgGridAngular } from "ag-grid-angular";
 import type { ColDef, GridApi } from "ag-grid-community";
 import { AllCommunityModule, ModuleRegistry, themeAlpine } from "ag-grid-community";
+import { HttpService } from '../services/http.services';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 @Component({
@@ -17,17 +18,19 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 export class FinancialExclusionComponent {
 
   theme = themeAlpine;
-  rowData: any[] = this.getRowData();
+  rowData: any[] = [];
   financialExclusionGridApi!: GridApi;
   columnDefs: ColDef[] = [
-    { field: "accountId", headerName: "Account ID", filter: "agTextColumnFilter" },
-    { field: "transactionDate", headerName: "Transaction Date", filter: "agDateColumnFilter" },
-    { field: "previousTransactionDate", headerName: "Previous Transaction Date", filter: "agDateColumnFilter" },
+    { field: "accountID", headerName: "Account ID", filter: "agTextColumnFilter" },
     { field: "accountHolderName", headerName: "Account Holder Name", filter: "agTextColumnFilter" },
-    { field: "gender", headerName: "Gender", filter: "agSetColumnFilter" },
-    { field: "dateOfBirth", headerName: "Date of Birth", filter: "agDateColumnFilter" },
-    { field: "occupation", headerName: "Occupation", filter: "agSetColumnFilter" },
-    { field: "merchantType", headerName: "Merchant Type", filter: "agSetColumnFilter" },
+    { field: "accountBalance", headerName: "Account Balance", filter: "agNumberColumnFilter" },
+    { field: "accountOpeningDate", headerName: "Account Opening Date", filter: "agDateColumnFilter" },
+    { field: "transactionDate", headerName: "Transaction Date", filter: "agDateColumnFilter" },
+    { field: "transactionType", headerName: "Transaction Type", filter: "agTextColumnFilter" },
+    { field: "gender", headerName: "Gender", filter: "agTextColumnFilter" },
+    { field: "age", headerName: "Age", filter: "agNumberColumnFilter" },
+    { field: "customerOccupation", headerName: "Occupation", filter: "agTextColumnFilter" },
+    { field: "merchantType", headerName: "Merchant Type", filter: "agTextColumnFilter" },
     { field: "occupationScheme", headerName: "Occupation Scheme", filter: "agSetColumnFilter" },
   ];
 
@@ -56,6 +59,26 @@ export class FinancialExclusionComponent {
   onGridReady(params: any) {
     this.financialExclusionGridApi = params.api;
     params.api.sizeColumnsToFit();
+  }
+
+  constructor(private htttpService: HttpService) {
+    console.log("Inside ngOnINIT")
+    this.htttpService.getAllExcludedAccounts().subscribe((data: any) => {
+      this.rowData = data;
+      setTimeout(() => {
+        this.financialExclusionGridApi?.setGridOption('rowData', this.rowData)
+      }, 100);
+    });
+  }
+
+  ngOnint() {
+    console.log("Inside ngOnINIT")
+    this.htttpService.getAllExcludedAccounts().subscribe((data: any) => {
+      this.rowData = data;
+      setTimeout(() => {
+        this.financialExclusionGridApi?.setGridOption('rowData', this.rowData)
+      }, 100);
+    });
   }
 
   getRowData() {
