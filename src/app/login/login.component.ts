@@ -67,6 +67,7 @@ constructor(private router: Router,  private snackBar: MatSnackBar) { }
     if (user.username === this.username && user.password === this.password) {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('userRole',this.selectedRole)
+      localStorage.setItem('userName', user.username)
       this.router.navigate(['/my-dashboard']);
       break; 
     }else{
