@@ -1,4 +1,7 @@
 <mat-toolbar color="primary" class="app-toolbar">
+    <button class="menu-icon-wrapper" mat-icon-button (click)="onToggle()">
+    <mat-icon>menu</mat-icon>
+   </button>
     @for (item of topNavItems; track $index) {
       <div class="sidenav-nav-item">
         <a
@@ -10,6 +13,9 @@
         </a>
       </div>
     }
+    <div *ngIf="!isAgent" class="header-banner">
+      <h1>Welcome {{userName}} to FinRich</h1>
+    </div>
 <span class="spacer"></span>
 
 <button mat-icon-button [matMenuTriggerFor]="langMenu">

@@ -45,9 +45,13 @@ else if (role === 'customer'){
       routeLink: 'my-dashboard',
       icon: 'home',
       label: 'My Dashboard',
-    }]
+    },
+   {
+      routeLink: 'check-voucher',
+      icon: 'receipt_long ',
+      label: 'Check Voucher',
+    } ]
 }
    }
-
 
 }

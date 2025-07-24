@@ -23,4 +23,11 @@ export class layoutComponent {
         }
       
     }
+
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+  isSidenavOpen = true;
+
+  toggleSidebar() {
+    this.sidenav.toggle();
+  }
 }
