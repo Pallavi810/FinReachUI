@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "loginApp": {
+    "dbInclusionLens": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -23,7 +23,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets"
-              ],
+            ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"
@@ -56,12 +56,15 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          },
           "configurations": {
             "production": {
-              "buildTarget": "loginApp:build:production"
+              "buildTarget": "dbInclusionLens:build:production"
             },
             "development": {
-              "buildTarget": "loginApp:build:development"
+              "buildTarget": "dbInclusionLens:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,10 +80,10 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
-           "assets": [
+            "assets": [
               "src/favicon.ico",
               "src/assets"
-              ],
+            ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
               "src/styles.css"

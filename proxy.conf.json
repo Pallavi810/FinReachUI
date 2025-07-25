@@ -1,0 +1,11 @@
+{
+    "/api/**": {
+        "target": "https://hack-team-finreach.as.r.appspot.com",
+        "secure": false,
+        "changeOrigin": true,
+        "logLevel": "info",
+        "pathRewrite": {
+            "/api": ""
+        }
+    }
+}

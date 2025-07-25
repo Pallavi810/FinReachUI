@@ -1,0 +1,45 @@
+
+.flex-container {
+    /* We first create a flex layout context */
+    display: flex;
+
+    /* Then we define the flow direction 
+     and if we allow the items to wrap 
+   * Remember this is the same as:
+   * flex-direction: row;
+   * flex-wrap: wrap;
+   */
+    flex-flow: row wrap;
+
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+
+    padding: 0;
+    margin-top: 10px;
+    list-style: none;
+}
+
+.flex-item {
+    padding: 4px;
+    width: 400px;
+    height: 365px;
+    margin-top: 10px;
+    line-height: 150px;
+    text-align: center;
+    border: 2px solid darkslateblue;
+}
+
+.flex-item-bar-chart {
+    padding: 4px;
+    width: 800px;
+    height: 365px;
+    margin-top: 10px;
+    line-height: 150px;
+    text-align: center;
+    border: 2px solid darkslateblue;
+}
+
+::ng-deep .mat-mdc-tab {
+    height: 35px !important;
+    background-color: whitesmoke !important;
+}

@@ -38,21 +38,33 @@ export class LoginComponent {
   dummyUsers = {
     agent: [{
       username: 'rohit',
-      password: 'rohit123'
-    },
-    {
+      password: 'rohit123',
+      customerType: 'NORMAL',
+      name: 'Rohit'
+    },{
       username: 'rahul',
-      password: 'rahul123'
-    }
-  ],
+      password: 'rahul123',
+      customerType: 'NORMAL',
+      name: 'Rahul'
+    }],
     customer: [{
       username: 'amit',
-      password: 'amit123'
-    },
-  {
+      password: 'amit123',
+      customerType: 'NORMAL',
+      name: 'Amit'
+    },{
       username: 'rohan',
-      password: 'rohan123'
-    }]
+      password: 'rohan123',
+      customerType: 'DORMANT',
+      name: 'Rohan'
+    },
+    {
+      username: 'ajoy',
+      password: 'ajoy123',
+      customerType: 'FIN_EXCLUDED',
+      name: 'Ajoy'
+    }
+  ]
   };
 
   selectRole(role: 'agent' | 'customer') {
@@ -67,8 +79,11 @@ constructor(private router: Router,  private snackBar: MatSnackBar) { }
     if (user.username === this.username && user.password === this.password) {
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('userRole',this.selectedRole)
+      localStorage.setItem('userName', user.username)
+      localStorage.setItem('customerType', user.customerType)
+       localStorage.setItem('name', user.name)
       this.router.navigate(['/my-dashboard']);
-      break; 
+      break;
     }else{
     this.snackBar.open('Invalid username or password', 'Close', {
     duration: 3000,

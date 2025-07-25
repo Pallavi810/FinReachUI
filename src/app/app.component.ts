@@ -9,5 +9,5 @@ import { layoutComponent } from './layout/layout.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'loginApp';
+  title = 'dbInclusionLens';
 }

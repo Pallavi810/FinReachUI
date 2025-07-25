@@ -1,1 +1,12 @@
-<p>redeem-voucher works!</p>
+<div>
+  <mat-form-field class="form-width">
+    <mat-label>Enter Voucher Id</mat-label>
+    <input type="text"
+           placeholder="Voucher Id"
+           matInput
+           #nameInput>
+  </mat-form-field>
+</div>
+<button class="btn" (click)="openSnackBar()">
+  Redeem Voucher
+</button>

@@ -1,1 +1,18 @@
-<p>my-tickets works!</p>
+<div class="container-flex">
+  <mat-card class="example-card" appearance="outlined">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>My Tickets</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="card-body" style="height: 60vh; display: flex; flex-direction: column">
+        <ag-grid-angular style="height: 100%;" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+                         [autoGroupColumnDef]="autoGroupColumnDef" [rowData]="rowData" (gridReady)="onGridReady($event)"
+                         [pagination]="true" [theme]="theme" />
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+

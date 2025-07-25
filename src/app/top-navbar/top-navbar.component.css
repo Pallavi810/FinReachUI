@@ -1,10 +1,14 @@
 .app-toolbar {
-  position: sticky;
+  position: relative;
+  display: flex;
   top: 0;
   z-index: 10;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   background: #012a5b;
-  height:100px ;
+  height: 55px ;
+  align-items: center;
+  padding-left: 8px; 
+  font-size: 14px;
 }
 .title {
   font-weight: 500;
@@ -22,7 +26,7 @@
 button[mat-icon-button] {
   background-color: #f0f0f0;
   border-radius: 4px;
-  margin-left: 8px;
+  margin-left: 0px;
 }
 
 .app-toolbar .sidenav-nav-item {
@@ -42,8 +46,8 @@ button[mat-icon-button] {
   margin-left: 1.5rem;
 }
 .app-toolbar .sidenav-nav-item:hover .sidenav-nav-link {
-  background-color: #fff;
-  color: #000;
+  background-color: #012a5b;
+  color: white;
 }
 
 .sidenav-nav-link mat-icon {
@@ -52,5 +56,32 @@ button[mat-icon-button] {
 }
 
 .sidenav-nav-link:hover mat-icon {
-  color:#012a5b ; 
+  color:white ; 
+}
+
+.header-banner h1 {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.header-banner {
+  position: absolute;
+  left: 40%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.menu-icon-wrapper {
+  margin-right: 24px; /* spacing from the right */
+  margin-left: 0px;    /* shift it slightly from the left edge */
+  display: flex;
+  align-items: center;
 }

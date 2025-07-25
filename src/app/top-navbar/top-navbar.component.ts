@@ -1,4 +1,4 @@
-import { Component, Input} from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -6,6 +6,7 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import { Router } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-top-navbar',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
    MatMenuModule,
    RouterModule,
    MatListModule
+
   ],
   templateUrl: './top-navbar.component.html',
   styleUrl: './top-navbar.component.css'
@@ -21,46 +23,37 @@ import { Router } from '@angular/router';
 export class TopNavbarComponent {
    selectedLanguage = 'en';
  @Input() drawer!: MatSidenav;
+  @Output() toggleSidebar = new EventEmitter<void>();
   topNavItems: any[] = [];
- 
-  
+  userName : any;
+  isAgent: boolean = false;
 
   ngOnInit() {
     const role = localStorage.getItem('userRole');
+      this.userName = localStorage.getItem('name');
 
-    if(role === 'agent'){
-     this.topNavItems = [
+  }
+
+  onToggle() {
+    this.toggleSidebar.emit();
+  }
+
+  getTopNavIteams(){
+    return this.topNavItems = [
     {
       routeLink: 'customer-onboarding',
       icon: 'person_add',
       label: 'Customer Onboarding',
-    },   {
-      routeLink: 'redeem-voucher',
-      icon: 'card_giftcard',
-      label: 'Redeem Voucher',
-    },   {
+    }, {
       routeLink: 'check-voucher',
       icon: 'receipt_long ',
-      label: 'Check Voucher',
+      label: 'Generate Voucher',
     },   {
       routeLink: 'my-tickets',
       icon: 'confirmation_number',
       label: 'My Tickets',
     },
   ]
-    }else if (role === 'customer'){
-      this.topNavItems = [
-     {
-      routeLink: 'redeem-voucher',
-      icon: 'card_giftcard',
-      label: 'Redeem Voucher',
-    },   {
-      routeLink: 'check-voucher',
-      icon: 'receipt_long ',
-      label: 'Check Voucher',
-    } 
-  ]
-    }
   }
 
   constructor(private router: Router) { }

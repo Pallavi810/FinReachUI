@@ -1,0 +1,70 @@
+.title {
+    font-size: 20px;
+    color: orange;
+    display: flex;
+    flex-direction: row;
+
+    .tIcon {
+        color: orange;
+        margin-right: 5px;
+    }
+}
+
+
+.activity {
+    margin-top: 60px;
+    margin-left: 10px;
+    border: 1px solid lightgray;
+    padding: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-radius: 5px;
+}
+
+.activity-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.activity-col {
+    width: 300px
+}
+
+
+.cr {
+    margin-left:40px;
+}
+
+.cr-text {
+margin-left:30px;
+}
+
+.act-button {
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    border: 1px dashed gray;
+    background-color: white;
+    cursor: pointer;
+
+   mat-icon {
+     color: #6082b6;
+   }
+
+}
+
+.activity_text {
+    margin-top: 10px;
+    color: #6082b6;
+    width: 260px;
+}
+
+.activity-text-lg {
+    width: 320px;
+}
+
+.bt-disabled {
+    background-color: lightgray;
+    cursor: none;
+    pointer-events: none;
+   }
