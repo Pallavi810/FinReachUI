@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "FinReach": {
+    "dbInclusionLens": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -61,10 +61,10 @@
           },
           "configurations": {
             "production": {
-              "buildTarget": "FinReach:build:production"
+              "buildTarget": "dbInclusionLens:build:production"
             },
             "development": {
-              "buildTarget": "FinReach:build:development"
+              "buildTarget": "dbInclusionLens:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -1,34 +1,37 @@
+@if(!loading) {
 <mat-tab-group (selectedTabChange)="onTabChange($event)">
-    <mat-tab label="Dormant">
+    <mat-tab label="Dormancy Risk">
         <div class="flex-container">
             <div class="flex-item">
-                <app-chart-by-occupation></app-chart-by-occupation>
+                <app-chart-by-occupation [chartData]="dataForDormantOccupationChart"></app-chart-by-occupation>
             </div>
             <div class="flex-item-bar-chart">
-                <app-chart-by-region></app-chart-by-region>
+                <app-chart-by-location [locationData]="dataForDormantLocationChart"></app-chart-by-location>
             </div>
             <div class="flex-item-bar-chart">
-                <app-chart-by-region></app-chart-by-region>
+                <app-chart-by-region [chartData]="dataForDormantRegionGenderChart"></app-chart-by-region>
             </div>
             <div class="flex-item">
-                <app-chart-by-age></app-chart-by-age>
+                <app-chart-by-age [chartData]="dataForDormantAgeGroupChart"></app-chart-by-age>
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="Financially Excluded">
+    <mat-tab label="Financial Exclusion Risk">
         <div class="flex-container">
             <div class="flex-item">
-                <app-chart-by-occupation></app-chart-by-occupation>
+                <app-chart-by-occupation [chartData]="dataForExcludedOccupationChart"></app-chart-by-occupation>
             </div>
             <div class="flex-item-bar-chart">
-                <app-chart-by-region></app-chart-by-region>
+                <app-chart-by-location [locationData]="dataForExcludedLocationChart"></app-chart-by-location>
             </div>
             <div class="flex-item-bar-chart">
-                <app-chart-by-region></app-chart-by-region>
+                <app-chart-by-region-gender-exc
+                    [chartData]="dataForExcludedRegionGenderChart"></app-chart-by-region-gender-exc>
             </div>
             <div class="flex-item">
-                <app-chart-by-age></app-chart-by-age>
+                <app-chart-by-age [chartData]="dataForExcludedAgeGroupChart"></app-chart-by-age>
             </div>
         </div>
     </mat-tab>
 </mat-tab-group>
+}

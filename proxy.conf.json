@@ -1,6 +1,6 @@
 {
     "/api/**": {
-        "target": "https://concrete-flight-466607-e5.el.r.appspot.com",
+        "target": "https://hack-team-finreach.as.r.appspot.com",
         "secure": false,
         "changeOrigin": true,
         "logLevel": "info",

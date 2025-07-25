@@ -7,7 +7,8 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 })
 export class HttpService {
     headers = new HttpHeaders();
-    env = '/api';
+    // env = 'https://hack-team-finreach.as.r.appspot.com';
+    env ='/api';
     constructor(private httpClient: HttpClient) {
     }
 
@@ -32,10 +33,26 @@ export class HttpService {
     getAllExcludedAccounts() {
         return this.getData(`${this.env}/getAllExcludedAccounts`);
     }
+    getCountExcludedAccountsByLocation() {
+        return this.getData(`${this.env}/countExcludedAccountsByLocation`);
+    }
+    getCountExcludedAccountsByAge(minAge: any, maxAge: any) {
+        const httpParams = new HttpParams().append("minAge", minAge).append("maxAge", maxAge);
+        return this.getData(`${this.env}/countExcludedAccountsByAge`, httpParams);
+    }
+    getCountExcludedAccountsByOccupation() {
+        return this.getData(`${this.env}/countExcludedAccountsByOccupation`);
+    }
+    getCountExcludedLocationGender() {
+        return this.getData(`${this.env}/countExclusionLocationGender`);
+    }
+    getCountExcludedForEachMonthCurrYear() {
+        return this.getData(`${this.env}/countExcludedByMonthAndYear`);
+    }
     getAllDormantAccounts() {
         return this.getData(`${this.env}/getAllDormantAccounts`);
     }
-    getcountDormantAccountsByLocation() {
+    getCountDormantAccountsByLocation() {
         return this.getData(`${this.env}/countDormantAccountsByLocation`);
     }
     getCountDormantAccountsByAge(minAge: any, maxAge: any) {
@@ -45,7 +62,10 @@ export class HttpService {
     getCountDormantAccountsByOccupation() {
         return this.getData(`${this.env}/countDormantAccountsByOccupation`);
     }
-    getCountExcludedAccountsByLocation() {
-        return this.getData(`${this.env}/countExcludedAccountsByLocation`);
+    getCountDormantLocationGender() {
+        return this.getData(`${this.env}/countDormantLocationGender`);
+    }
+    getCountDormantForEachMonthCurrYear() {
+        return this.getData(`${this.env}/countDormantByMonthAndYear`);
     }
 }

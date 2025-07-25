@@ -35,7 +35,20 @@ export class SideNavbarComponent {
     {
       routeLink: 'financial-exclusion',
       icon: 'block',
-      label: 'Financial Exclusion',
+      label: 'At Risk Report',
+    }, {
+      routeLink: 'check-voucher',
+      icon: 'receipt_long ',
+      label: 'Check Voucher',
+    },   {
+      routeLink: 'my-tickets',
+      icon: 'confirmation_number',
+      label: 'My Tickets',
+    },
+        {
+      routeLink: 'customer-onboarding',
+      icon: 'person_add',
+      label: 'Customer Onboarding',
     }
   ];
 }
@@ -47,9 +60,9 @@ else if (role === 'customer'){
       label: 'My Dashboard',
     },
    {
-      routeLink: 'check-voucher',
+      routeLink: 'redeem-voucher',
       icon: 'receipt_long ',
-      label: 'Check Voucher',
+      label: 'Redeem Voucher',
     } ]
 }
    }

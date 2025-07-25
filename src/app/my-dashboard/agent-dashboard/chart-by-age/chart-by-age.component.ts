@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { AgCharts } from 'ag-charts-angular';
 import { AgChartOptions, PixelSize } from "ag-charts-community";
 
@@ -10,6 +10,7 @@ import { AgChartOptions, PixelSize } from "ag-charts-community";
 })
 export class ChartByAgeComponent {
   public options: AgChartOptions;
+  @Input() chartData: any;
 
   constructor() {
     this.options = {
@@ -57,10 +58,16 @@ export class ChartByAgeComponent {
     };
   }
 
-  ngOnInit() {
-    const chartDataInPercent = this.getData();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      this.setChartData();
+    }
+  }
+
+  setChartData() {
+    let chartDataInPercent = this.chartData;
     let total = 0;
-    this.getData().forEach((item: { count: number; }) => {
+    chartDataInPercent.forEach((item: { count: number; }) => {
       total += item.count;
     });
     chartDataInPercent.forEach((item: { count: number; }) => {
@@ -70,13 +77,5 @@ export class ChartByAgeComponent {
       this.options.data = chartDataInPercent;
       this.options = { ...this.options }; // Trigger change detection
     }, 0);
-  }
-
-  getData() {
-    return [
-      { ageGroup: "Young Adults(18-39)", count: 60000 },
-      { ageGroup: "Middle-Aged(40-65)", count: 40000 },
-      { ageGroup: "Old Adults(66 and above)", count: 17000 }
-    ]
   }
 }

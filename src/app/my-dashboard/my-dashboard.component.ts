@@ -15,7 +15,6 @@ export class MyDashboardComponent {
     // This constructor can be used for dependency injection or initial setup.
     const role = localStorage.getItem('userRole');
     if (role === 'agent') {
-      console.log('User is an ', role);
       this.isAgent = true;
     }
   }

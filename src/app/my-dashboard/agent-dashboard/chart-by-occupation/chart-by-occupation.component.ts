@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { AgChartOptions } from "ag-charts-community";
 import { AgCharts } from "ag-charts-angular";
 @Component({
@@ -9,6 +9,7 @@ import { AgCharts } from "ag-charts-angular";
 })
 export class ChartByOccupationComponent {
   public options: AgChartOptions;
+  @Input() chartData: any;
 
   constructor() {
     this.options = {
@@ -28,7 +29,7 @@ export class ChartByOccupationComponent {
             fontWeight: "bold",
             formatter: ({ value }: { value: number }) => `${(value).toFixed(2)}%`,
           },
-          
+
           tooltip: {
             renderer: function ({ datum }) {
               return {
@@ -56,25 +57,31 @@ export class ChartByOccupationComponent {
     return params.value.toFixed(0) + '%'
   }
   ngOnInit() {
-    const chartDataInPercent = this.getData();
-    let total = 0;
-    this.getData().forEach((item: { count: number; }) => {
-      total += item.count;
-    });
-    chartDataInPercent.forEach((item: { count: number; }) => {
-      item.count = (item.count / total) * 100; // Convert to percentage
-    });
-    setTimeout(() => {
-      this.options.data = chartDataInPercent;
-      this.options = { ...this.options }; // Trigger change detection
-    }, 0);
   }
 
-  getData() {
-    return [
-      { occupation: "Farmer", count: 60000 },
-      { occupation: "Labour", count: 40000 },
-      { occupation: "Retired", count: 7000 },
-    ];
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes) {
+      this.setChartData();
+    }
+  }
+
+  setChartData() {
+    if (this.chartData) {
+      let chartDataInPercent = [];
+      chartDataInPercent.push({ occupation: 'Farmer', count: this.chartData.Farmer });
+      chartDataInPercent.push({ occupation: 'Labour', count: this.chartData.Labour });
+      chartDataInPercent.push({ occupation: 'Retired', count: this.chartData.Retired });
+      let total = 0;
+      chartDataInPercent.forEach((item: { count: number; }) => {
+        total += item.count;
+      });
+      chartDataInPercent.forEach((item: { count: number; }) => {
+        item.count = (item.count / total) * 100; // Convert to percentage
+      });
+      setTimeout(() => {
+        this.options.data = chartDataInPercent;
+        this.options = { ...this.options }; // Trigger change detection
+      }, 0);
+    }
   }
 }

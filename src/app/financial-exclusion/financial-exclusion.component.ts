@@ -7,6 +7,7 @@ import { AgGridAngular } from "ag-grid-angular";
 import type { ColDef, GridApi } from "ag-grid-community";
 import { AllCommunityModule, ModuleRegistry, themeAlpine } from "ag-grid-community";
 import { HttpService } from '../services/http.services';
+import { OccupationSchemeCellRendererComponent } from './occupation-scheme-cell-renderer.component';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 @Component({
@@ -16,7 +17,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
   styleUrl: './financial-exclusion.component.css'
 })
 export class FinancialExclusionComponent {
-
+  dataLoading = true;
   theme = themeAlpine;
   rowData: any[] = [];
   financialExclusionGridApi!: GridApi;
@@ -31,7 +32,7 @@ export class FinancialExclusionComponent {
     { field: "age", headerName: "Age", filter: "agNumberColumnFilter" },
     { field: "customerOccupation", headerName: "Occupation", filter: "agTextColumnFilter" },
     { field: "merchantType", headerName: "Merchant Type", filter: "agTextColumnFilter" },
-    { field: "occupationScheme", headerName: "Occupation Scheme", filter: "agSetColumnFilter" },
+    { field: "occupationScheme", headerName: "Occupation Scheme", cellRenderer: OccupationSchemeCellRendererComponent, width: 5,filter: "agSetColumnFilter" },
   ];
 
   defaultColDef: ColDef = {
@@ -62,49 +63,20 @@ export class FinancialExclusionComponent {
   }
 
   constructor(private htttpService: HttpService) {
-    console.log("Inside ngOnINIT")
-    this.htttpService.getAllExcludedAccounts().subscribe((data: any) => {
-      this.rowData = data;
-      setTimeout(() => {
-        this.financialExclusionGridApi?.setGridOption('rowData', this.rowData)
-      }, 100);
-    });
+    this.setGridData();
   }
 
   ngOnint() {
-    console.log("Inside ngOnINIT")
+  }
+
+  setGridData() {
     this.htttpService.getAllExcludedAccounts().subscribe((data: any) => {
       this.rowData = data;
       setTimeout(() => {
-        this.financialExclusionGridApi?.setGridOption('rowData', this.rowData)
+        this.financialExclusionGridApi?.setGridOption('rowData', this.rowData);
+        this.dataLoading = false;
+        this.financialExclusionGridApi?.setGridOption("loading", this.dataLoading);
       }, 100);
     });
-  }
-
-  getRowData() {
-    return [
-      {
-        accountId: "1234567890",
-        transactionDate: "2023-10-01",
-        previousTransactionDate: "2023-09-25",
-        accountHolderName: "John Doe",
-        gender: "Male",
-        dateOfBirth: "1990-01-01",
-        occupation: "Software Engineer",
-        merchantType: "Retail",
-        occupationScheme: "Full-time"
-      },
-      {
-        accountId: "1234567891",
-        transactionDate: "2023-10-01",
-        previousTransactionDate: "2023-09-25",
-        accountHolderName: "Joane Dixin",
-        gender: "Female",
-        dateOfBirth: "1990-01-01",
-        occupation: "Software Engineer",
-        merchantType: "Retail",
-        occupationScheme: "Full-time"
-      },
-    ];
   }
 }

@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'FinReach' title`, () => {
+  it(`should have the 'dbInclusionLens' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('FinReach');
+    expect(app.title).toEqual('dbInclusionLens');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, FinReach');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, dbInclusionLens');
   });
 });

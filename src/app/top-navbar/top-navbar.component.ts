@@ -14,8 +14,7 @@ import { NgIf } from '@angular/common';
     MatToolbarModule,
    MatMenuModule,
    RouterModule,
-   MatListModule,
-   NgIf,
+   MatListModule
 
   ],
   templateUrl: './top-navbar.component.html',
@@ -31,13 +30,8 @@ export class TopNavbarComponent {
 
   ngOnInit() {
     const role = localStorage.getItem('userRole');
+      this.userName = localStorage.getItem('name');
 
-    if(role === 'agent'){
-     this.topNavItems = this.getTopNavIteams();
-     this.isAgent = true;
-    }else if(role == 'customer'){
-      this.userName = localStorage.getItem('userName');
-    }
   }
 
   onToggle() {
@@ -50,14 +44,10 @@ export class TopNavbarComponent {
       routeLink: 'customer-onboarding',
       icon: 'person_add',
       label: 'Customer Onboarding',
-    },   {
-      routeLink: 'redeem-voucher',
-      icon: 'card_giftcard',
-      label: 'Redeem Voucher',
-    },   {
+    }, {
       routeLink: 'check-voucher',
       icon: 'receipt_long ',
-      label: 'Check Voucher',
+      label: 'Generate Voucher',
     },   {
       routeLink: 'my-tickets',
       icon: 'confirmation_number',
